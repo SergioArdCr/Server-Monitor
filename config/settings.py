@@ -14,3 +14,7 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")   # clave para firmar el JWT
 ALGORITHM = "HS256"
 TOKEN_EXPIRE_MINUTES = 30
+
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
+EMAIL_TO = os.getenv("EMAIL_DESTINO")
