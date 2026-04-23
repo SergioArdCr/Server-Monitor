@@ -13,13 +13,6 @@ SessionLocal = sessionmaker(bind=engine)
 class Base(DeclarativeBase):
     pass
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 class Monitor(Base):
     __tablename__ = "Monitor"
     id          = Column(Integer, primary_key=True, autoincrement=True)

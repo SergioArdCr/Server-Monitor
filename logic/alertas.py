@@ -4,15 +4,16 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def send_email(url: str, codigo_http: int):
+    
     try:
-        servidor = smtplib.SMTP("smtp.gmail.com", 587)
-        servidor.starttls()
-        servidor.login(EMAIL, PASSWORD)
-        
-        new_email = create_email(url, codigo_http)
 
-        servidor.send_message(new_email)
-        servidor.quit()
+        new_email = create_email(url, codigo_http)
+        with smtplib.SMTP("smtp.gmail.com", 587) as servidor:
+            servidor.ehlo()
+            servidor.starttls()
+            servidor.ehlo()
+            servidor.login(EMAIL, PASSWORD)
+            servidor.sendmail(EMAIL, EMAIL_TO, new_email.as_string())
         
     except smtplib.SMTPAuthenticationError:
         print("Error: credenciales incorrectas, verifica el .env")
@@ -23,7 +24,7 @@ def send_email(url: str, codigo_http: int):
 def create_email(url: str, codigo_http: int):
     mensaje = MIMEMultipart()
     mensaje["From"] = EMAIL
-    mensaje["To"] = ",".join(EMAIL_TO)
+    mensaje["To"] = EMAIL_TO
     mensaje["Subject"] = f"🚨 Alerta: {url} está caído"
 
     EMAIL_BODY = f"""Buen día,
