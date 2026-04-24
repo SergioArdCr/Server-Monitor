@@ -8,8 +8,6 @@ Script de automatización que monitorea la disponibilidad de servidores en tiemp
 
 Proyecto desarrollado como parte de un plan de aprendizaje de Python enfocado en desarrollo backend y automatización de procesos.
 
-**GitHub:** https://github.com/SergioArdCr/Server-Monitor
-
 ## 🛠️ Tecnologías
 
 - `httpx` — cliente HTTP asíncrono para chequear URLs
@@ -147,8 +145,6 @@ Monitor automático.
 Automation script that monitors server availability in real time. Checks multiple URLs in parallel using asynchronous programming, saves results history in PostgreSQL, and sends email alerts when a server goes down.
 
 Built as part of a Python learning plan focused on backend development and process automation.
-
-**GitHub:** https://github.com/SergioArdCr/Server-Monitor
 
 ## 🛠️ Tech Stack
 
